@@ -18,7 +18,7 @@ public class FractalRenderer{
     private Path cwd;
     private int width, height;
     private BufferedImage img;
-    private static final int THREADCOUNT = 6;
+    private static final int THREADCOUNT = 4;
     private AtomicInteger nextRenderSection = new AtomicInteger(THREADCOUNT);
     private double centerX; //default: -.875
     private double centerY; //default: 0
