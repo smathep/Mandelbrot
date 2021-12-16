@@ -18,8 +18,8 @@ public class FractalRenderer{
     private Path cwd;
     private int width, height;
     private BufferedImage img;
-    private static final int THREADCOUNT = 4;
-    private AtomicInteger nextRenderSection = new AtomicInteger(THREADCOUNT);
+    private int threadCount = 6;
+    private AtomicInteger nextRenderSection = new AtomicInteger(threadCount);
     private double centerX; //default: -.875
     private double centerY; //default: 0
     private double zoomFactor; //default: 1
@@ -37,17 +37,18 @@ public class FractalRenderer{
         cwd = cwdTest;
     }
     
-    public boolean renderSetup(int width, int height, double cX, double cY, double zoom){
+    public boolean renderSetup(int width, int height, double cX, double cY, double zoom, int threadC){
         this.width = width;
         this.height = height;
         centerX = cX;
         centerY = cY;
         zoomFactor = zoom;
+        threadCount = threadC;
         long startTime = System.currentTimeMillis();
         img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-        RenderThread[] threads = new RenderThread[THREADCOUNT];
-        int numSections = THREADCOUNT*2;
-        for(int tCount = 0; tCount < THREADCOUNT; tCount++){
+        RenderThread[] threads = new RenderThread[threadCount];
+        int numSections = threadCount*2;
+        for(int tCount = 0; tCount < threadCount; tCount++){
             threads[tCount] = new RenderThread(cwd, "r-thread" + tCount, img, width, height, this);
             threads[tCount].setStartX(0);
             threads[tCount].setStartY((height / numSections) * tCount);
@@ -116,11 +117,11 @@ public class FractalRenderer{
 
     public boolean startNextSection(RenderThread rt){
 
-        if(nextRenderSection.get() < (THREADCOUNT * 2)){
+        if(nextRenderSection.get() < (threadCount * 2)){
             System.out.println(rt.tName + " getting new section");
             System.out.println("nextRenderSection: " + nextRenderSection.get());
-            rt.setStartY((height / (THREADCOUNT*2)) * nextRenderSection.get());
-            rt.setEndY((height / (THREADCOUNT*2)) * nextRenderSection.incrementAndGet());
+            rt.setStartY((height / (threadCount*2)) * nextRenderSection.get());
+            rt.setEndY((height / (threadCount*2)) * nextRenderSection.incrementAndGet());
             return true;
         }
         return false;
