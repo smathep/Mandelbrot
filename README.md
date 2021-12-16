@@ -9,6 +9,16 @@ Allows the user to customize the zoom scale, centered coordinates, and number of
 - Allow the user to specify the resolution outside of editing the Driver.java class
 - Allow the color scheme to be chosen by the user or adjusted in some way
 
+# Command usage
+- compile: ```javac Driver.java RenderThread.java FractalRenderer.java```
+- run: 
+```
+java Driver
+java Driver 1 specifies zoom
+java Driver 1 -0.875 1 //specifies zoom and coordinates
+java driver 1 -0.875 1 4 //specifies zoom, coordinates, and thread count
+```
+
 # Rendered Images
 ![1639696289178](https://user-images.githubusercontent.com/71954677/146462631-ffb40527-e39c-44f7-95f7-7765dc6eac18.png)
 - 1080p at default zoom and coordinates
