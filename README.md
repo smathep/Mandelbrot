@@ -14,7 +14,7 @@ Allows the user to customize the zoom scale, centered coordinates, and number of
 - run: 
 ```
 java Driver
-java Driver 1 specifies zoom
+java Driver 1 //specifies zoom
 java Driver 1 -0.875 1 //specifies zoom and coordinates
 java driver 1 -0.875 1 4 //specifies zoom, coordinates, and thread count
 ```
