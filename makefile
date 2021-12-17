@@ -1,7 +1,7 @@
 compile:
 	javac Driver.java FractalRenderer.java RenderThread.java -d bin
 
-package:
+package: compile
 	jar --create --file Mandelbrot.jar -e Driver -C bin .
 
 #runs default settings
