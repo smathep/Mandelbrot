@@ -8,15 +8,19 @@ Allows the user to customize the zoom scale, centered coordinates, and number of
 - (Eventually) implement GUI for controlling render settings
 - Allow the user to specify the resolution outside of editing the Driver.java class
 - Allow the color scheme to be chosen by the user or adjusted in some way
+- Allow arguments in the makefile run command to be passed to the java run command
 
 # Command usage
-- compile: ```javac Driver.java RenderThread.java FractalRenderer.java```
+- compile: 
+```make compile
+make package
+```
 - run: 
 ```
-java Driver
+make run //requires the jar file to be made and runs with default parameters
 java Driver 1 //specifies zoom
 java Driver 1 -0.875 1 //specifies zoom and coordinates
-java driver 1 -0.875 1 4 //specifies zoom, coordinates, and thread count
+java Driver 1 -0.875 1 4 //specifies zoom, coordinates, and thread count
 ```
 
 # Rendered Images
