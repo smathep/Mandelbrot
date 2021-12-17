@@ -18,9 +18,9 @@ make package
 - run: 
 ```
 make run //requires the jar file to be made and runs with default parameters
-java Driver 1 //specifies zoom
-java Driver 1 -0.875 1 //specifies zoom and coordinates
-java Driver 1 -0.875 1 4 //specifies zoom, coordinates, and thread count
+java -jar Mandelbrot.jar 1 //specifies zoom
+java -jar Mandelbrot.jar 1 -0.875 1 //specifies zoom and coordinates
+java -jar Mandelbrot.jar 1 -0.875 1 4 //specifies zoom, coordinates, and thread count
 ```
 
 # Rendered Images
