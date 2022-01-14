@@ -118,8 +118,9 @@ public class FractalRenderer{
     public boolean startNextSection(RenderThread rt){
 
         if(nextRenderSection.get() < (threadCount * 2)){
-            System.out.println(rt.tName + " getting new section");
-            System.out.println("nextRenderSection: " + nextRenderSection.get());
+            // System.out.println(rt.tName + " getting new section");
+            // System.out.println("nextRenderSection: " + nextRenderSection.get());
+            System.out.println(rt.tName + " Finished rendering section. Getting section " + nextRenderSection.get());
             rt.setStartY((height / (threadCount*2)) * nextRenderSection.get());
             rt.setEndY((height / (threadCount*2)) * nextRenderSection.incrementAndGet());
             return true;

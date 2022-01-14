@@ -23,12 +23,12 @@ public class RenderThread implements Runnable {
 
     @Override
     public void run() {
-        System.out.println(tName + " Running");
+        // System.out.println(tName + " Running"); //debug
         threadRender();
     }
 
     public void start(){
-        System.out.println(tName + " Starting");
+        // System.out.println(tName + " Starting"); //debug
         if(t == null){
             t = new Thread(this, tName);
             t.start();
@@ -39,13 +39,13 @@ public class RenderThread implements Runnable {
 
     public void threadRender(){
         do{
-            System.out.println("Thread " + t.getName() + " rendering");
+            // System.out.println("Thread " + t.getName() + " rendering"); //debug
             for(int x = startX; x < endX; x++){
                 for(int y = startY; y < endY; y++){
                 controller.setPixel(x, y);
                 }
             }
-            System.out.println("Thread " + t.getName() + " finished rendering");
+            // System.out.println("Thread " + t.getName() + " finished rendering"); //debug
         }while(controller.startNextSection(this));
     }
 
