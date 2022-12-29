@@ -5,6 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.imageio.ImageIO;
@@ -66,8 +68,8 @@ public class FractalRenderer{
             System.out.println("Interrupted thread");
         }
         
-
-        File f = new File(cwd.toString() + "/" + System.currentTimeMillis() + ".png");
+        SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy-HH:mm:ss");
+        File f = new File(cwd.toString() + "/" + formatter.format(Calendar.getInstance().getTime()) + ".png");
         try{
             ImageIO.write(img, "PNG", f);
             System.out.println("Completed in " + (System.currentTimeMillis() - startTime) + " miliseconds.");
