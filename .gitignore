@@ -2,3 +2,6 @@ images/
 bin/
 Mandelbrot.jar
 .DS_Store
+.vscode/dryrun.log
+.vscode/targets.log
+.vscode/configurationCache.log
