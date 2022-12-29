@@ -68,7 +68,7 @@ public class FractalRenderer{
             System.out.println("Interrupted thread");
         }
         
-        SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy-HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy-HH_mm_ss");
         File f = new File(cwd.toString() + "/" + formatter.format(Calendar.getInstance().getTime()) + ".png");
         try{
             ImageIO.write(img, "PNG", f);
